@@ -31,7 +31,7 @@
   </style>
 
 </head>
-<body>
+<body ng-app="todo" ng-controller="MainController as mc">
 
   <div class="ui fixed inverted menu">
     <div class="ui container">
@@ -41,6 +41,24 @@
       </div>
       <a href="#" class="item">Home</a>
     </div>
+  </div>
+
+  <div class="ui main text container">
+    <form novalidate class="ui fluid form">
+      <div class="inline field">
+        <div class="ui right pointing label">
+          Title
+        </div>
+        <input type="text" ng-model="mc.todo.title">
+        <input class="ui primary button" type="submit" ng-click="mc.addTodo()" value="Save" />
+      </div>
+    </form>
+
+    <h2 class="ui dividing header">Todos</h2>
+
+    <ul>
+      <li ng-repeat="todo in mc.todos">{{ todo.title }}</li>
+    </ul>
   </div>
 
   <div class="ui main text container">

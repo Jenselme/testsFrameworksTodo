@@ -16,17 +16,18 @@
     "url": "https://github.com/Jenselme/testsFrameworksTodo/issues"
   },
   "devDependencies": {
-    "webpack": "~1.12.2",
-    "webpack-dev-server": "~1.12.1",
-    "file-loader": "~0.8.4",
-    "style-loader": "~0.13.0",
     "css-loader": "~0.20.2",
+    "del": "~2.0.2",
     "extract-text-webpack-plugin": "~0.8.2",
-    "html-webpack-plugin": "~2.0.4",
+    "file-loader": "~0.8.4",
     "gulp": "~3.9.0",
     "gulp-util": "~3.0.7",
     "gulp-watch": "~4.3.5",
-    "del": "~2.0.2"
+    "html-webpack-plugin": "~2.0.4",
+    "ng-annotate-loader": "0.0.10",
+    "style-loader": "~0.13.0",
+    "webpack": "~1.12.2",
+    "webpack-dev-server": "~1.12.1"
   },
   "dependencies": {
     "angular": "~1.4.7",
