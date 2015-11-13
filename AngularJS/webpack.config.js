@@ -17,6 +17,7 @@ module.exports = {
       {test: /\.css$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader')},
       {test: /\.(jpg|jpeg|png|svg|ttf|woff|woff2|eot)$/, loader: 'file?name=[name].[ext]'},
       {test: /app.*\.js$/, loaders: ['ng-annotate']},
+      {test: /\.html$/, exclude: /node_modules/, loader:"raw"},
     ]
   },
   plugins: [

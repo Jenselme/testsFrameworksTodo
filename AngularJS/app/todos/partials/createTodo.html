@@ -1,0 +1,30 @@
+<h4 class="ui header">Enter a TODO</h4>
+
+<form class="ui fluid form"
+      name="todoForm"
+      ng-submit="addTodo(todoForm.$valid)"
+      novalidate>
+    <div class="inline field">
+        <div class="ui right pointing label">
+            Title
+        </div>
+        <input name="title"
+               type="text"
+               ng-model="todo.title"
+               ng-required="true" />
+        <select class="ui fluid dropdown"
+                name="status"
+                ng-model="todo.status"
+                ng-options="status for status in statuses"
+                required>
+        </select>
+        <div class="field">
+            <p ng-show="todoForm.title.$invalid">A title is required.</p>
+            <label>Description</label>
+            <textarea name="description" rows="2" ng-model="todo.description"></textarea>
+        </div>
+        <button class="ui primary button"
+                type="submit"
+                ng-disabled="todoForm.$invalid">Save</button>
+    </div>
+</form>
