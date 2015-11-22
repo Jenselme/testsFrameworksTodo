@@ -1,11 +1,9 @@
 angular.module('todos').directive('createTodo', CreateTodo);
 
 
-function CreateTodo() {
+function CreateTodo(todos) {
     return {
-        scope: {
-            onSave: '&createTodoSave'
-        },
+        scope: {},
         template: require('./partials/createTodo.html'),
         link: function (scope) {
             scope.statuses = ['new', 'to do', 'started', 'in review', 'done'];
@@ -22,9 +20,8 @@ function CreateTodo() {
             angular.copy(scope.defaultTodo, scope.todo);
 
             scope.addTodo = function () {
-                if (scope.onSave) {
-                    scope.onSave({todo: scope.todo});
-                }
+                todos.save(scope.todo);
+
                 scope.todo = {};
                 angular.copy(scope.defaultTodo, scope.todo);
             };

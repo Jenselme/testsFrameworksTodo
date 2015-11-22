@@ -1,5 +1,7 @@
+<h1>Activity</h1>
+
 <div ng-controller="ActivityController as ac">
-    <div create-todo create-todo-save="ac.addTodo(todo)"></div>
+    <div create-todo></div>
 
     <ul>
         <li ng-repeat="todo in ac.todos | lastTen track by $index"

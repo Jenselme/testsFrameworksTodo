@@ -1,0 +1,10 @@
+<h1>List of all todos</h1>
+
+<div ng-controller="ListController as lc">
+    <div create-todo></div>
+
+    <ul>
+        <li ng-repeat="todo in lc.todos | orderBy:'-modificationDate' track by $index"
+            ng-class="{strikethrough: todo.status === 'done'}">{{ todo.title }}</li>
+    </ul>
+</div>
