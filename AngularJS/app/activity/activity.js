@@ -5,3 +5,4 @@ angular.module('activity', [
 ]);
 
 require('./ActivityController');
+require('./activityFilter');

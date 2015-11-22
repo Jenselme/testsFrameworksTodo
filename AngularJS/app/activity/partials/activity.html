@@ -2,6 +2,7 @@
     <div create-todo create-todo-save="ac.addTodo(todo)"></div>
 
     <ul>
-        <li ng-repeat="todo in ac.todos track by $index">{{ todo.title }}</li>
+        <li ng-repeat="todo in ac.todos | lastTen track by $index"
+            ng-class="{strikethrough: todo.status === 'done'}">{{ todo.title }}</li>
     </ul>
 </div>
