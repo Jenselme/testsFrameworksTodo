@@ -27,6 +27,8 @@ is constituted by :
       title, there is a svg file containing three icons: view, edit,
       delete. When the use passes the mouse over one icon, it is highlighted. If
       the user clicks on it, the corresponding action happens.
+   #. Filter todos by status or title
+   #. Sort by modification date, creation date
 
 #. Page three: the kaban list. This page allows the user to:
 
