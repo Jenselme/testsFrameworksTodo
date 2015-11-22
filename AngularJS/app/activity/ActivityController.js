@@ -1,6 +1,6 @@
 angular.module('activity').controller('ActivityController', Controller);
 
-function Controller() {
+function Controller(todos) {
     'use strict';
 
     var vm = this;
@@ -9,6 +9,8 @@ function Controller() {
     vm.addTodo = addTodo;
 
     function addTodo(todo) {
-        vm.todos.push(todo);
+        todos.save(todo).then(function (todo) {
+          vm.todos.push(todo);
+        });
     }
 }
