@@ -6,7 +6,6 @@ function CreateTodo(todos) {
         scope: {},
         template: require('./partials/createTodo.html'),
         link: function (scope) {
-            scope.statuses = ['new', 'to do', 'started', 'in review', 'done'];
             scope.defaultTodo = {
                 id: undefined,
                 title: '',
