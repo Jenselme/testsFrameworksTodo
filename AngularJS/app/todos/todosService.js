@@ -2,7 +2,15 @@ angular.module('todos').factory('todos', TodosService);
 
 
 function TodosService($q) {
-    var todos = [];
+    var todos = [{
+        id: 0,
+        title: 'Sample TODO',
+        status: 'new',
+        description: null,
+        creationDate: null,
+        modificationDate: null,
+        endDate: null
+    }];
 
     return {
         save: save,
@@ -12,11 +20,15 @@ function TodosService($q) {
 
     function save(todo) {
         var deferred = $q.defer();
+        var now = Date.now();
 
-        todo.creationDate = Date.now();
-        todo.modificationDate = Date.now();
+        todo.modificationDate = now;
 
-        todos.push(todo);
+        if (todo.id === undefined) {
+            todo.id = todos.length;
+            todo.creationDate = now;
+            todos.push(todo);
+        }
 
         deferred.resolve(todo);
 
