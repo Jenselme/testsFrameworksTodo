@@ -1,6 +1,6 @@
 angular.module('list').controller('ListController', ListController);
 
-function ListController($scope, todos) {
+function ListController(todos) {
     var vm = this;
 
     vm.todos = todos.get();
@@ -13,11 +13,11 @@ function ListController($scope, todos) {
     vm.delete = deleteAction;
     vm.editing = undefined;
     vm.deleting = undefined;
-    vm.view = undefined;
+    vm.viewing = undefined;
 
     function editAction(todoId) {
+        vm.viewing = undefined;
         if (vm.editing === undefined) {
-            console.log(todoId);
             vm.editing = todoId;
         } else {
             vm.editing = undefined
@@ -25,12 +25,17 @@ function ListController($scope, todos) {
     }
 
 
-    function viewAction() {
-        console.log('view');
+    function viewAction(todoId) {
+        vm.editing = undefined
+        if (vm.viewing === undefined) {
+            vm.viewing = todoId;
+        } else {
+            vm.viewing = undefined
+        }
     }
 
 
-    function deleteAction() {
-        console.log('delete');
+    function deleteAction(todoIndex) {
+        todos.delete(todoIndex);
     }
 }

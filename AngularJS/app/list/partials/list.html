@@ -18,9 +18,12 @@
     <ul>
         <li ng-repeat="todo in lc.todos | orderBy:'-modificationDate' | filter:{status: lc.filters.status, title: lc.filters.title} track by $index"
             ng-class="{strikethrough: todo.status === 'done'}">
-            <span>{{ todo.title }}</span> <span edit-todo view-action="lc.view(todo.id)" edit-action="lc.edit(todo.id)" delete-action="lc.delete(todo.id)"></span>
+            <span>{{ todo.title }}</span> <span edit-todo view-action="lc.view(todo.id)" edit-action="lc.edit(todo.id)" delete-action="lc.delete(todo)"></span>
             <div todo="todo"
                  ng-if="lc.editing === todo.id">
+            </div>
+            <div view-todo="todo"
+                 ng-if="lc.viewing === todo.id">
             </div>
         </li>
     </ul>

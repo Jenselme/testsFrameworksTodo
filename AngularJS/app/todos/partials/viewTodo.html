@@ -1,0 +1,9 @@
+<div>
+    Status: {{ todo.status }}<br />
+    Created: {{ todo.creationDate | date:'yyyy-MM-dd HH:mm:ss' }}<br />
+    Modified: {{ todo.modificationDate | date:'yyyy-MM-dd HH:mm:ss'}}<br />
+    <span ng-show="todo.description">
+        Description:
+        <p>{{ todo.description }}</p>
+    </span>
+</div>

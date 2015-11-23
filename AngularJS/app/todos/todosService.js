@@ -7,14 +7,15 @@ function TodosService($q) {
         title: 'Sample TODO',
         status: 'new',
         description: null,
-        creationDate: null,
-        modificationDate: null,
+        creationDate: Date.now(),
+        modificationDate: Date.now(),
         endDate: null
     }];
 
     return {
         save: save,
-        get: get
+        get: get,
+        delete: deleteTodo
     };
 
 
@@ -37,5 +38,15 @@ function TodosService($q) {
 
     function get() {
         return todos;
+    }
+
+    function deleteTodo(todo) {
+        var deferred = $q.defer();
+        var index = todos.indexOf(todo);
+        todos.splice(index, 1);
+
+        deferred.resolve();
+
+        return deferred.promise;
     }
 }
