@@ -1,11 +1,13 @@
 require('./activity/activity');
 require('./list/list');
+require('./kaban/kaban');
 
 
 angular.module('app', [
     'ngRoute',
     'activity',
-    'list'
+    'list',
+    'kaban'
 ]);
 
 
@@ -16,7 +18,7 @@ angular.module('app').config(['$routeProvider',
         }).when('/list', {
             template: require('./list/partials/list.html')
         }).when('/kaban', {
-            templateUrl: '/kaban/partials/kaban.html'
+            template: require('./kaban/partials/kaban.html')
         }).otherwise({
             redirectTo: '/'
         });

@@ -1,0 +1,26 @@
+<h1>Kaban view of the TODOS</h1>
+
+<div ng-controller="KabanController as kc">
+
+    <div>
+        <div create-todo></div>
+
+        <p ng-show="kc.correctlySaved">Todo correctly saved</p>
+    </div>
+    <div class="ui five column grid">
+        <div ng-repeat="(status, todos) in kc.todos track by $index"
+             dnd-list="todos"
+             class="column">
+            <h4>{{ status}}</h4>
+
+            <div ng-repeat="todo in todos track by $index"
+                 dnd-draggable="todo"
+                 dnd-dragend="kc.move(todo, status)"
+                 dnd-effect-allowed="move"
+                 dnd-selected="kc.selected = item"
+                 ng-class="{'selected': kc.selected === todo}">
+                {{todo.title}}
+            </div>
+        </div>
+    </div>
+</div>

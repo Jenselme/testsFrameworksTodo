@@ -1,6 +1,6 @@
 angular.module('todos').directive('selectStatus', SelectStatus);
 
-function SelectStatus() {
+function SelectStatus(statuses) {
     return {
         scope: {
             status: '=',
@@ -9,7 +9,7 @@ function SelectStatus() {
         template: require('./partials/selectStatus.html'),
         replace: true,
         link: function (scope) {
-            scope.statuses = ['new', 'to do', 'started', 'in review', 'done'];
+            scope.statuses = statuses;
 
             if (scope.allowSelectBlank) {
                 scope.statuses.unshift('');

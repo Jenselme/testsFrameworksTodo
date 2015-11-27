@@ -11,11 +11,13 @@ function TodosService($q) {
         modificationDate: Date.now(),
         endDate: null
     }];
+    var onCreateCallbacks = [];
 
     return {
         save: save,
         get: get,
-        delete: deleteTodo
+        delete: deleteTodo,
+        onCreate: onCreate
     };
 
 
@@ -29,6 +31,10 @@ function TodosService($q) {
             todo.id = todos.length;
             todo.creationDate = now;
             todos.push(todo);
+
+            onCreateCallbacks.forEach(function (cb) {
+               cb(todo);
+            });
         }
 
         deferred.resolve(todo);
@@ -48,5 +54,9 @@ function TodosService($q) {
         deferred.resolve();
 
         return deferred.promise;
+    }
+
+    function onCreate(func) {
+        onCreateCallbacks.push(func);
     }
 }

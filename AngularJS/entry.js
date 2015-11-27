@@ -1,6 +1,7 @@
 window.jQuery = require('./node_modules/jquery/dist/jquery');
 window.angular = require('./node_modules/angular');
 require('./node_modules/angular-route/angular-route');
+require('./vendor/angular-drag-and-drop-lists');
 
 require('./node_modules/semantic-ui/dist/semantic');
 require('./node_modules/semantic-ui/dist/semantic.css');
