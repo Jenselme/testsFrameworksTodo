@@ -10,12 +10,12 @@
     <div class="ui five column grid">
         <div ng-repeat="(status, todos) in kc.todos track by $index"
              dnd-list="todos"
+             dnd-inserted="kc.save(item, status)"
              class="column">
-            <h4>{{ status}}</h4>
+            <h4>{{ status }}</h4>
 
             <div ng-repeat="todo in todos track by $index"
                  dnd-draggable="todo"
-                 dnd-dragend="kc.move(todo, status)"
                  dnd-effect-allowed="move"
                  dnd-selected="kc.selected = item"
                  ng-class="{'selected': kc.selected === todo}">

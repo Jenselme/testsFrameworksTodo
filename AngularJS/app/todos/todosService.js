@@ -1,17 +1,14 @@
 angular.module('todos').factory('todos', TodosService);
 
 
-function TodosService($q) {
-    var todos = [{
-        id: 0,
-        title: 'Sample TODO',
-        status: 'new',
-        description: null,
-        creationDate: Date.now(),
-        modificationDate: Date.now(),
-        endDate: null
-    }];
+function TodosService($http) {
+    var todos = [];
     var onCreateCallbacks = [];
+    var todosPromise = $http.get('http://localhost:8888/todos').then(function (resp) {
+        todos = resp.data;
+
+        return todos;
+    });
 
     return {
         save: save,
@@ -22,41 +19,34 @@ function TodosService($q) {
 
 
     function save(todo) {
-        var deferred = $q.defer();
-        var now = Date.now();
+        if (todo._id === undefined) {
+            return $http.post('http://localhost:8888/todo', todo).then(function (resp) {
+                var todo = resp.data;
+                todos.push(todo);
 
-        todo.modificationDate = now;
+                onCreateCallbacks.forEach(function (cb) {
+                    cb(todo);
+                });
 
-        if (todo.id === undefined) {
-            todo.id = todos.length;
-            todo.creationDate = now;
-            todos.push(todo);
-
-            onCreateCallbacks.forEach(function (cb) {
-               cb(todo);
+                return todo;
             });
+        } else {
+            return $http.post('http://localhost:8888/todo/' + todo._id, todo);
         }
-
-        deferred.resolve(todo);
-
-        return deferred.promise;
     }
 
     function get() {
-        return todos;
+        return todosPromise;
     }
 
     function deleteTodo(todo) {
-        var deferred = $q.defer();
-        var index = todos.indexOf(todo);
-        todos.splice(index, 1);
-
-        deferred.resolve();
-
-        return deferred.promise;
+        return $http.delete('http://localhost:8888/todo/' + todo._id).then(function () {
+            var index = todos.indexOf(todo);
+            todos.splice(index, 1);
+        });
     }
 
-    function onCreate(func) {
-        onCreateCallbacks.push(func);
+    function onCreate(cb) {
+        onCreateCallbacks.push(cb);
     }
 }

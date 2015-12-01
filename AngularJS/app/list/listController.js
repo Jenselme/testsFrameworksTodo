@@ -3,7 +3,10 @@ angular.module('list').controller('ListController', ListController);
 function ListController(todos) {
     var vm = this;
 
-    vm.todos = todos.get();
+    vm.todos = [];
+    todos.get().then(function (todos) {
+        vm.todos = todos;
+    });
     vm.filters = {
         status: '',
         title: ''
@@ -20,17 +23,17 @@ function ListController(todos) {
         if (vm.editing === undefined) {
             vm.editing = todoId;
         } else {
-            vm.editing = undefined
+            vm.editing = undefined;
         }
     }
 
 
     function viewAction(todoId) {
-        vm.editing = undefined
+        vm.editing = undefined;
         if (vm.viewing === undefined) {
             vm.viewing = todoId;
         } else {
-            vm.viewing = undefined
+            vm.viewing = undefined;
         }
     }
 
