@@ -1,0 +1,19 @@
+{
+  "name": "todo-backend",
+  "version": "1.0.0",
+  "description": "Todo backend",
+  "main": "index.js",
+  "author": "Julien Enselme",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Jenselme/testsFrameworksTodo.git"
+  },
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "express": "^4.13.3",
+    "kerberos": "0.0.17",
+    "mongodb": "^1.4.0",
+    "monk": "^1.0.1"
+  }
+}
