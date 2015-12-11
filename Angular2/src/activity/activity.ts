@@ -1,19 +1,18 @@
 import { Component, CORE_DIRECTIVES } from 'angular2/angular2';
-import { Todos, Todo } from '../todos/todos';
+import { Todos, Todo, CreateTodo } from '../todos/todos';
 
 
 @Component({
-    directives: [CORE_DIRECTIVES],
+    directives: [CORE_DIRECTIVES, CreateTodo],
     selector: 'activity',
     template: `<h1>Activity</h1>
 
-<!--<div create-todo></div>-->
+<create-todo></create-todo>
 
 <ul>
     <li *ng-for="#todo of todos"
         [ng-class]="{strikethrough: todo.status === 'done'}">{{ todo.title }}</li>
-</ul>`,
-//    providers: [Todos]
+</ul>`
 })
 export class Activity {
     public todos: Todo[];
