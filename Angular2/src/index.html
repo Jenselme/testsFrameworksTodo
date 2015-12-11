@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO app in Angular2</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <script src="https://github.jspm.io/jmcriffey/bower-traceur-runtime@0.0.87/traceur-runtime.js"></script>
+        <!--<script src="https://jspm.io/system@0.16.js"></script>-->
+        <script src="../node_modules/systemjs/dist/system.src.js"></script>
+
+        <script>
+            System.config({
+                defaultJSExtensions: true,
+                baseURL: '/src'
+            });
+        </script>
+
+        <script src="../node_modules/angular2/bundles/angular2.dev.js"></script>
+        <script src="../node_modules/angular2/bundles/router.dev.js"></script>
+        <script src="../node_modules/angular2/bundles/http.dev.js"></script>
+
+        <script>
+            System.import('app/app');
+        </script>
+
+        <link rel="stylesheet" type="text/css" href="../node_modules/semantic-ui/dist/semantic.css">
+        <!--<script src="../node_modules/jquery/dist/jquery.js"></script>-->
+        <!--        <script src="../node_modules/semantic-ui/dist/semantic.js"></script>-->
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+    </head>
+    <body>
+        <my-app>loading</my-app>
+    </body>
+</html>

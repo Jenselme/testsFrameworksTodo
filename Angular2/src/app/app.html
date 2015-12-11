@@ -1,0 +1,18 @@
+<h1>List of all todos</h1>
+
+<div class="ui main text container">
+    <router-outlet></router-outlet>
+</div>
+
+
+<div class="ui fixed inverted menu">
+    <div class="ui container">
+        <div class="header item">
+            <img class="logo" src="images/logo.png" alt="Logo">
+            Todo Application in AngularJS
+        </div>
+        <a [router-link]="['/Activity']" class="item">Activity</a>
+        <!-- <a [router-link]="['/list']" class="item">List</a>
+        <a href="['/kaban']" class="item">Kaban</a> -->
+    </div>
+</div>

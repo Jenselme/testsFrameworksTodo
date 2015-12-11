@@ -1,0 +1,30 @@
+{
+  "name": "angular2todo",
+  "version": "1.0.0",
+  "description": "Todo Application written in Angular2",
+  "main": "index.js",
+  "scripts": {
+    "tsc": "tsc -p src -w",
+    "start": "live-server --open=src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Jenselme/testsFrameworksTodo.git"
+  },
+  "author": "Julien Enselme",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/Jenselme/testsFrameworksTodo/issues"
+  },
+  "homepage": "https://github.com/Jenselme/testsFrameworksTodo#readme",
+  "dependencies": {
+    "angular2": "^2.0.0-alpha.46",
+    "jquery": "^2.1.4",
+    "semantic-ui": "^2.1.6",
+    "systemjs": "^0.19.6"
+  },
+  "devDependencies": {
+    "live-server": "^0.8.2",
+    "typescript": "^1.7.3"
+  }
+}

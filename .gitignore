@@ -1,2 +1,5 @@
 Semantic-UI
 public
+
+/Angular2/**/*.js
+/Angular2/**/*.js.map
