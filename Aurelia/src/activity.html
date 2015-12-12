@@ -1,7 +1,10 @@
 <template>
+    <require from="./todos/create-todo-element"></require>
     <require from="./filters"></require>
 
     <h1>Activity</h1>
+
+    <create-todo></create-todo>
 
     <ul>
         <li class="${todo.status === 'done' ? 'strikethrough' : ''}"

@@ -1,0 +1,24 @@
+<template>
+    <require from="./select-status-element"></require>
+
+    <form class="ui fluid form"
+          name="todoForm"
+          submit.trigger="saveTodo()">
+        <div class="inline field">
+            <div class="ui right pointing label">
+                Title
+            </div>
+            <input name="title"
+                   type="text"
+                   value.bind="todo.title"
+                   required />
+            <select-status status.bind="todo.status"/>
+        </div>
+        <div class="field">
+            <label>Description</label>
+            <textarea name="description" rows="2" value.bind="todo.description"></textarea>
+        </div>
+        <button class="ui primary button"
+                type="submit">Save</button>
+    </form>
+</template>

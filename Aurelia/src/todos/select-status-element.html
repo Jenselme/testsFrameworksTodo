@@ -1,0 +1,9 @@
+<template>
+    <select class="ui fluid dropdown"
+        name="status"
+        value.bind="status"
+        required>
+            <option repeat.for="status of statuses"
+                    value.bind="status">${status}</option>
+    </select>
+</template>
