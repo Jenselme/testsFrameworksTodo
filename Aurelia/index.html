@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO app in Aurelia</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="node_modules/semantic-ui/dist/semantic.css">
+        <script src="../node_modules/jquery/dist/jquery.js"></script>
+        <script src="../node_modules/semantic-ui/dist/semantic.js"></script>
+        <link rel="stylesheet" href="styles/styles.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+
+    <body>
+        <script src="jspm_packages/system.js"></script>
+        <script src="config.js"></script>
+        <script>
+            System.import('aurelia-bootstrapper');
+        </script>
+
+        <div class="ui top menu">
+            
+                <div class="header item">
+                    <img class="logo" src="images/logo.png" alt="Logo">
+                    Todo Application in Aurelia
+                </div>
+                <a href="#/" class="item">Activity</a>
+                <a href="#/list" class="item">List</a>
+                <a href="#/kaban" class="item">Kaban</a>
+            
+        </div>
+
+        <div class="ui main text container" aurelia-app></div>
+    </body>
+</html>

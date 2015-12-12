@@ -1,0 +1,11 @@
+.strikethrough {
+    text-decoration: line-through;
+}
+
+.editable:hover {
+    fill: #099;
+}
+
+.editable {
+    cursor: pointer;
+}
