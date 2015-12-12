@@ -1,0 +1,10 @@
+<template>
+    <require from="./filters"></require>
+
+    <h1>Activity</h1>
+
+    <ul>
+        <li class="${todo.status === 'done' ? 'strikethrough' : ''}"
+            repeat.for="todo of todos | lastTen">${todo.title}</li>
+    </ul>
+</template>
