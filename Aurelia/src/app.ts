@@ -2,9 +2,9 @@ import { Router, RouterConfiguration } from 'aurelia-router';
 
 
 export class App {
-    public router: Router;
+    router;
 
-    configureRouter(config: RouterConfiguration, router: Router) {
+    configureRouter(config, router) {
         config.title = 'Todo App';
         config.map([
             { route: ['', 'activity'], name: 'activity', moduleId: 'activity', nav: true, title: 'Activity' },

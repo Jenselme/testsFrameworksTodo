@@ -2,10 +2,11 @@ var gulp = require('gulp');
 var runSequence = require('run-sequence');
 var changed = require('gulp-changed');
 var plumber = require('gulp-plumber');
+var to5 = require('gulp-babel');
 var sourcemaps = require('gulp-sourcemaps');
 var paths = require('../paths');
-var ts = require("gulp-typescript");
-var tsProject = ts.createProject('tsconfig.json');  
+var compilerOptions = require('../babel-options');
+var assign = Object.assign || require('object.assign');
 var notify = require("gulp-notify");
 var browserSync = require('browser-sync');
 var rename = require('gulp-rename');
@@ -19,7 +20,8 @@ gulp.task('build-system', function() {
     .pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
     .pipe(changed(paths.output, {extension: '.ts'}))
     .pipe(sourcemaps.init({loadMaps: true}))
-    .pipe(ts(tsProject))
+    .pipe(to5(assign({}, compilerOptions, {modules: 'system'})))
+    .pipe(rename({extensions: 'js'}))
     .pipe(sourcemaps.write({includeContent: true}))
     .pipe(gulp.dest(paths.output));
 });

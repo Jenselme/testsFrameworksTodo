@@ -1,7 +1,13 @@
 System.config({
   baseURL: "/",
   defaultJSExtensions: true,
-  transpiler: "typescript",
+  transpiler: "babel",
+  babelOptions: {
+    "optional": [
+      "es7.decorators",
+      "es7.classProperties"
+    ]
+  },
   paths: {
     "*": "src/*",
     "src": "src",
