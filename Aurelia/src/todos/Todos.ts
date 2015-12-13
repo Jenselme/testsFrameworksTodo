@@ -26,12 +26,23 @@ export class Todos {
     }
 
     save(todo) {
-        return this.http.post('todo', todo)
-            .then(resp => resp.content)
-            .then(todo => {
-                this.todos.push(todo);
-                return todo;
-            });
+        if (todo._id === undefined) {
+            return this.http.post('todo', todo)
+                .then(resp => resp.content)
+                .then(todo => {
+                    this.todos.push(todo);
+                    return todo;
+                });
+        } else {
+            return this.http.post('todo/' + todo._id, todo);
+        }
+    }
+
+    delete(todo) {
+        return this.http.delete('todo/' + todo._id).then(() => {
+            let index = this.todos.indexOf(todo);
+            this.todos.splice(index, 1);
+        });
     }
 }
 
@@ -47,4 +58,3 @@ export class Todo {
 
 
 export const statuses = ['new', 'to do', 'started', 'in review', 'done'];
-

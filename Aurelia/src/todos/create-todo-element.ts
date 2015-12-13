@@ -1,11 +1,16 @@
-import { bindable, bindingMode, inject } from 'aurelia-framework';
+import { inject, bindable, bindingMode } from 'aurelia-framework';
 import { Todo, Todos, statuses } from './Todos';
 
 
 @inject(Todos)
+@bindable({
+    name: 'todo',
+    attribute: 'todo',
+    defaultBindingMode: bindingMode.twoWay
+})
 export class CreateTodoCustomElement {
     backend;
-    todo: Todo;
+    resetAfterSave;
 
     constructor(backend: Todos) {
         this.backend = backend;
@@ -13,12 +18,19 @@ export class CreateTodoCustomElement {
     }
 
     saveTodo() {
+        if (this.todo._id) {
+            this.resetAfterSave = false;
+        } else {
+            this.resetAfterSave = true;
+        }
         this.backend.save(this.todo).then(() => this.resetTodo());
     }
 
     resetTodo() {
-        this.todo = new Todo();
-        this.todo.status = statuses[0];
+        if (this.resetAfterSave) {
+            this.todo = new Todo();
+            this.todo.status = statuses[0];
+        }
     }
 }
 

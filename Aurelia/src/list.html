@@ -1,0 +1,26 @@
+<template>
+    <require from="./todos/create-todo-element"></require>
+    <require from="./todos/view-todo-element"></require>
+    <require from="./todos/edit-todo-element"></require>
+    <require from="./todos/modify-todo-element"></require>
+    <require from="./filters"></require>
+
+    <h1>List</h1>
+
+    <create-todo></create-todo>
+
+    <ul>
+        <li repeat.for="todo of todos | modificationDate">
+                <span class="${todo.status === 'done' ? 'strikethrough' : ''}">
+                    ${todo.title}
+                </span>
+                <modify-todo todo.bind="todo"></modify-todo>
+                <div if.bind="editing === todo._id">
+                    <edit-todo todo.bind="todo"></edit-todo>
+                </div>
+                <div if.bind="viewing === todo._id">
+                    <view-todo todo.bind="todo"></view-todo>
+                </div>
+        </li>
+    </ul>
+</template>

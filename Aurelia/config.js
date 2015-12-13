@@ -24,6 +24,7 @@ System.config({
   map: {
     "aurelia-animator-css": "npm:aurelia-animator-css@1.0.0-beta.1.0.1",
     "aurelia-bootstrapper": "npm:aurelia-bootstrapper@1.0.0-beta.1",
+    "aurelia-event-aggregator": "npm:aurelia-event-aggregator@1.0.0-beta.1",
     "aurelia-fetch-client": "npm:aurelia-fetch-client@1.0.0-beta.1",
     "aurelia-framework": "npm:aurelia-framework@1.0.0-beta.1.0.1",
     "aurelia-history-browser": "npm:aurelia-history-browser@1.0.0-beta.1",
@@ -40,6 +41,7 @@ System.config({
     "core-js": "npm:core-js@1.2.6",
     "fetch": "github:github/fetch@0.10.1",
     "font-awesome": "npm:font-awesome@4.4.0",
+    "moment": "npm:moment@2.10.6",
     "text": "github:systemjs/plugin-text@0.0.3",
     "traceur": "github:jmcriffey/bower-traceur@0.0.92",
     "traceur-runtime": "github:jmcriffey/bower-traceur-runtime@0.0.92",
@@ -213,6 +215,9 @@ System.config({
     },
     "npm:inherits@2.0.1": {
       "util": "github:jspm/nodelibs-util@0.1.0"
+    },
+    "npm:moment@2.10.6": {
+      "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:path-browserify@0.0.0": {
       "process": "github:jspm/nodelibs-process@0.1.2"

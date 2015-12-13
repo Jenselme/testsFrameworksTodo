@@ -1,0 +1,13 @@
+<template>
+    <require from="../filters"></require>
+
+    <div>
+        Status: ${todo.status}<br />
+        Created: ${todo.creationDate | date:'yyyy-MM-dd HH:mm:ss'}<br />
+        Modified: ${todo.modificationDate | date:'yyyy-MM-dd HH:mm:ss'}<br />
+        <span if.bind="todo.description">
+            Description:
+            <p>${todo.description}</p>
+        </span>
+    </div>
+</template>
