@@ -1,0 +1,23 @@
+<template>
+    <require from="./todos/create-todo-element"></require>
+
+    <h1>Kaban</h1>
+
+    <div>
+
+        <div>
+            <create-todo></create-todo>
+        </div>
+        <div class="ui five column grid">
+            <div repeat.for="status of statuses"
+                 id.bind="status"
+                 class="column">
+                <h4>${status}</h4>
+
+                <div repeat.for="todo of todosByStatus[status]">
+                    ${todo.title}
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

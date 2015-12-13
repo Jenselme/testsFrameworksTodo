@@ -19,6 +19,12 @@ export class App {
                 moduleId: 'list',
                 nav: true,
                 title: 'List'
+            }, {
+                route: 'kaban',
+                name: 'kaban',
+                moduleId: 'kaban',
+                nav: true,
+                title: 'Kaban'
             }
         ]);
 
